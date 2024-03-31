@@ -5,6 +5,11 @@ const issueController = require('../controllers/issues_controller');
 router
   .route('/')
   .get(issueController.showIssues);
+  
+router
+.route('/new')
+.get(issueController.renderNew);
+// .post(issueController.createNewIssue);
 
 
 router
