@@ -9,7 +9,8 @@ router
 
 router
   .route('/:id')
-  .get(issueController.showIssueDetails);
+  .get(issueController.showIssueDetails)
+  .post(issueController.updateIssue);
 
 
 module.exports = router;

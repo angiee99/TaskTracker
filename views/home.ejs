@@ -9,7 +9,7 @@
     <h1>Issues to crack</h1>
 
     <% for (let issue of issues) { %>
-    <form action="/update/<%=issue.id%>" method="post">
+    <form action="/issues/<%=issue.id%>" method="post">
       <input onChange="this.form.submit()" type="checkbox" id="<%=issue.id%>" 
         name="issue" <%=issue.completed ? "checked" : ''%> >
       <label for="<%=issue.id%>"><%=issue.name %></label>

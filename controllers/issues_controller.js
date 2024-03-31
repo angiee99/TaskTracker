@@ -39,3 +39,9 @@ module.exports.showIssueDetails = (req, res, next) => {
     res.render("issue", { issue });
 
 }
+
+module.exports.updateIssue = (req, res, next) => {
+    const { id } = req.params;
+    const issue = issues.find((i) => i.id == id)
+    issue.completed = !issue.completed;
+}

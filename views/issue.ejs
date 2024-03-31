@@ -8,7 +8,7 @@
 <body>
     <h1>Issue to crack</h1>
 
-    <form action="/update/<%=issue.id%>" method="post">
+    <form action="/issues/<%=issue.id%>" method="post">
       <input onChange="this.form.submit()" type="checkbox" id="<%=issue.id%>" 
         name="issue" <%=issue.completed ? "checked" : ''%> >
       <label for="<%=issue.id%>"><%=issue.name %></label>
