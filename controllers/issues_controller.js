@@ -1,7 +1,7 @@
 // const Issue = require("../models/issue")
 // const ExpressError = require("../utils/ExpressError");
 
-const issues = [
+let issues = [
     {   "id": 1,
         "name": "Wash clothes", 
         "completed": false, 
@@ -48,4 +48,17 @@ module.exports.updateIssue = (req, res, next) => {
 
 module.exports.renderNew = (req, res, next) => {
     res.render("new");
+}
+
+module.exports.createNewIssue = (req, res, next) => {
+    const { name, details, time_start, time_end, priority } = req.body.issue;
+    issues.push({ "id" : issues.length + 1, 
+        "name": name, 
+        "completed": false, 
+        "details" : details, 
+        "priority": priority,
+        "time_start":time_start, 
+        "time_end": time_end })
+        
+    res.redirect("/issues")                        
 }

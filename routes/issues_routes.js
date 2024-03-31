@@ -4,12 +4,12 @@ const issueController = require('../controllers/issues_controller');
 
 router
   .route('/')
-  .get(issueController.showIssues);
+  .get(issueController.showIssues)
+  .post(issueController.createNewIssue);
   
 router
 .route('/new')
 .get(issueController.renderNew);
-// .post(issueController.createNewIssue);
 
 
 router
