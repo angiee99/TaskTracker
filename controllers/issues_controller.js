@@ -17,8 +17,14 @@ module.exports.showIssueDetails = async (req, res, next) => {
 module.exports.updateIssue = async (req, res, next) => {
     const { id } = req.params;
     const issue = await Issue.findById(id)
-    issue.completed = !issue.completed;
-    // ?? save updated to db
+    const completed = !issue.completed;
+
+    const updatedIssue = await Issue.findByIdAndUpdate(id, 
+        { completed });
+
+    await updatedIssue.save()
+    
+    res.redirect("/issues")     
 }
 
 module.exports.renderNew = (req, res, next) => {

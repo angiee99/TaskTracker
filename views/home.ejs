@@ -13,6 +13,7 @@
       <input onChange="this.form.submit()" type="checkbox" id="<%=issue.id%>" 
         name="issue" <%=issue.completed ? "checked" : ''%> >
       <label for="<%=issue.id%>"><%=issue.name %></label>
+      
       <p><%= issue.priority%></p>
 
       <a href="/issues/<%=issue.id%>/edit">Edit comment</a>
