@@ -47,3 +47,21 @@ module.exports.deleteIssue = async (req, res, next) => {
     }
     res.redirect("/issues")                        
 }
+
+module.exports.renderEdit = async (req, res, next) => {
+    const { id } = req.params;
+    const issue = await Issue.findById(id)
+    res.render("edit", { issue });
+}
+
+module.exports.saveEditedIssue = async (req, res, next) => {
+    const { id } = req.params;
+    const { name, details, time_start, time_end, priority } = req.body.issue; // to  be validated
+    const updatedIssue = await Issue.findByIdAndUpdate(id, 
+        { name, details, time_start, time_end, priority });
+
+    await updatedIssue.save()
+    res.redirect("/issues")                        
+}
+
+

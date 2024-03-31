@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issues</title>
+</head>
+<body>
+    <h1>Issue to crack</h1>
+
+    <form action="/issues/<%=issue.id%>/edit" method="post">
+        <section>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="issue[name]" value="<%=issue.name%>">
+        </section>
+        <section>
+            <label for="details">Details:</label>
+            <textarea type="textarea" id="details" name="issue[details]" rows="4" cols="50">
+                <%=issue.details%>
+            </textarea>
+        </section>
+        <section>
+            <label for="time_start">time_start:</label>
+            <input type="text" id="time_start" name="issue[time_start]"  value="<%=issue.time_start%>">
+        </section>
+        <section>
+            <label for="time_end">time_end:</label>
+            <input type="text" id="time_end" name="issue[time_end]"  value="<%=issue.time_end%>">
+        </section>
+        <section>
+            <label for="priority">priority:</label>
+            <input type="text" id="priority" name="issue[priority]" value="<%=issue.priority%>">
+        </section>
+
+        <button>Save edited task</button>
+      <a href="/issues/">back and forget about this edit</a>
+    </form>
+
+</body>
+</html>
