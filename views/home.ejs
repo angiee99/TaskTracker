@@ -14,7 +14,12 @@
         name="issue" <%=issue.completed ? "checked" : ''%> >
       <label for="<%=issue.id%>"><%=issue.name %></label>
       <p><%= issue.priority%></p>
+
+      <a href="/issues/<%=issue.id%>/edit">Edit comment</a>
       <a href="/issues/<%=issue.id%>">details</a>
+    </form>
+    <form action="/issues/<%=issue.id%>?_method=DELETE" method="post">
+      <button>Delete this task</button>
     </form>
     <%} %>
 </body>

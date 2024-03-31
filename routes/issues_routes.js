@@ -11,11 +11,16 @@ router
 .route('/new')
 .get(issueController.renderNew);
 
+// router
+//   .route('/:id/edit')
+//   .get(issueController.renderEdit)
+//   .post(issueController.saveEditedIssue);
 
 router
   .route('/:id')
   .get(issueController.showIssueDetails)
-  .post(issueController.updateIssue);
+  .post(issueController.updateIssue)
+  .delete(issueController.deleteIssue);
 
 
 module.exports = router;

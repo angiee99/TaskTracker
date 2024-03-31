@@ -1,4 +1,5 @@
 const express = require("express");
+const methodOverride = require("method-override");
 const path = require("path");
 const issueRoutes = require("./routes/issues_routes");
 const mongoose = require("mongoose");
@@ -16,6 +17,7 @@ db.once("open", () => {
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(methodOverride("_method"));
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));

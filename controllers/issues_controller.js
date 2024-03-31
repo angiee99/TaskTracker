@@ -38,3 +38,12 @@ module.exports.createNewIssue = async (req, res, next) => {
     await issue.save()
     res.redirect("/issues")                        
 }
+
+module.exports.deleteIssue = async (req, res, next) => {
+    const { id } = req.params;
+    const deletedIssue = await Issue.findByIdAndDelete(id);
+    if (!deletedIssue) {
+        throw new Error("Document not found", 404);
+    }
+    res.redirect("/issues")                        
+}
