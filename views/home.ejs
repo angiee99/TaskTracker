@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issues</title>
+</head>
+<body>
+    <h1>Issues to crack</h1>
+
+    <% for (let issue of issues) { %>
+    <form action="/update/<%=issue.id%>" method="post">
+      <input onChange="this.form.submit()" type="checkbox" id="<%=issue.id%>" 
+        name="issue" <%=issue.completed ? "checked" : ''%> >
+      <label for="<%=issue.id%>"><%=issue.name %></label>
+      <p><%= issue.priority%></p>
+      <a href="/issues/<%=issue.id%>">details</a>
+    </form>
+    <%} %>
+</body>
+</html>
