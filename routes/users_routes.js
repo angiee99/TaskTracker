@@ -2,11 +2,12 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/users_controller');
 const catchAsync = require('../utils/catchAsynch');
+const { validateUser } = require('../middleware/user_validation');
 
 router
     .route("/register")
     .get(userController.renderRegister)
-    .post(userController.createUser);
+    .post(validateUser, catchAsync(userController.createUser));
 
 router
     .route("/login")

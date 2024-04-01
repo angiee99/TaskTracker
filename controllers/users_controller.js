@@ -6,11 +6,11 @@ module.exports.renderRegister = (req, res, next) => {
 }
 
 module.exports.createUser = async (req, res, next) => {
-    const { loginName, email, password } = req.body.user; // validate
+    const { loginName, email, password } = req.validatedUser;
     const newUser = new User({ loginName, email, password }); 
     await newUser.save();
 
-    res.redirect("/login"); // /login
+    res.redirect("/users/login"); 
 }
 
 module.exports.renderLogin  = (req, res, next) => {
