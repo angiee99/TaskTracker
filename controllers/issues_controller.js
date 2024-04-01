@@ -38,7 +38,7 @@ module.exports.renderNew = (req, res, next) => {
 }
 
 module.exports.createNewIssue = async (req, res, next) => {
-    const { name, details, time_start, time_end, priority } = req.body.issue; // to  be validated
+    const { name, details, time_start, time_end, priority } = req.validatedIssue; // to  be validated
     const issue = new Issue({
         "name": name, 
         "completed": false, 
@@ -71,7 +71,7 @@ module.exports.showEditForm = async (req, res, next) => {
 
 module.exports.saveEditedIssue = async (req, res, next) => {
     const { id } = req.params;
-    const { name, details, time_start, time_end, priority } = req.body.issue; // to  be validated
+    const { name, details, time_start, time_end, priority } = req.validatedIssue; // to  be validated
     const updatedIssue = await Issue.findByIdAndUpdate(id, 
         { name, details, time_start, time_end, priority });
         

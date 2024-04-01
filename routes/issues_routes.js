@@ -2,11 +2,12 @@ const express = require('express');
 const router = express.Router();
 const issueController = require('../controllers/issues_controller');
 const catchAsync = require('../utils/catchAsynch');
+const { validateIssue } = require('../middleware/issue_validation')
 
 router
   .route('/')
   .get(catchAsync(issueController.showIssues))
-  .post(catchAsync(issueController.createNewIssue));
+  .post(validateIssue, catchAsync(issueController.createNewIssue));
   
 router
 .route('/new')
@@ -15,7 +16,7 @@ router
 router
   .route('/:id/edit')
   .get(catchAsync(issueController.showEditForm))
-  .post(catchAsync(issueController.saveEditedIssue));
+  .post(validateIssue, catchAsync(issueController.saveEditedIssue));
 
 router
   .route('/:id')
