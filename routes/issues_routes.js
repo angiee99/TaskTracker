@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const issueController = require('../controllers/issues_controller');
+const catchAsync = require('../utils/catchAsynch');
 
 router
   .route('/')
-  .get(issueController.showIssues)
-  .post(issueController.createNewIssue);
+  .get(catchAsync(issueController.showIssues))
+  .post(catchAsync(issueController.createNewIssue));
   
 router
 .route('/new')
@@ -13,14 +14,14 @@ router
 
 router
   .route('/:id/edit')
-  .get(issueController.renderEdit)
-  .post(issueController.saveEditedIssue);
+  .get(catchAsync(issueController.showEditForm))
+  .post(catchAsync(issueController.saveEditedIssue));
 
 router
   .route('/:id')
-  .get(issueController.showIssueDetails)
-  .post(issueController.updateIssue)
-  .delete(issueController.deleteIssue);
+  .get(catchAsync(issueController.showIssueDetails))
+  .post(catchAsync(issueController.updateIssue))
+  .delete(catchAsync(issueController.deleteIssue));
 
 
 module.exports = router;
