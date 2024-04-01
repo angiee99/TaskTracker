@@ -2,6 +2,7 @@ const express = require("express");
 const methodOverride = require("method-override");
 const path = require("path");
 const issueRoutes = require("./routes/issues_routes");
+const userRoutes = require("./routes/users_routes");
 const mongoose = require("mongoose");
 const ExpressError = require("./utils/ExpressError");
 
@@ -24,6 +25,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
 app.use("/issues", issueRoutes);
+app.use("/users", userRoutes);
 
 app.all("*", (req, res, next) => {
   const error = new ExpressError(404, "Not known path")
