@@ -16,4 +16,9 @@ router
     .get(userController.renderLogin)
     .post(catchAsync(userValidToLogin), catchAsync(userController.loginUser));
 
+router
+    .route("/logout")
+    .get(catchAsync(userController.logout));
+    
+
 module.exports = router;

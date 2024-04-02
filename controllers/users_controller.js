@@ -26,3 +26,18 @@ module.exports.loginUser = async (req, res, next) => {
     console.log("Login successful");
     res.redirect("/issues");
 };
+
+
+module.exports.logout = async (req, res, next) => {
+    // delete session
+    console.log("deleting session cookie");
+    req.session.userId = null;
+    req.session.save((err) => {
+      if (err) next(err);
+      req.session.regenerate((err) => {
+        if (err) next(err);
+        res.redirect("/users/login");
+      });
+    });
+  };
+  
