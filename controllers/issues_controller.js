@@ -3,7 +3,7 @@ const ExpressError = require("../utils/ExpressError");
 
 
 module.exports.showIssues = async (req, res, next) => {
-  const issues = await Issue.find({});
+  const issues = await Issue.find({}); // TODO get only those by logined user
   res.render("home", { issues});
 };
 
@@ -38,7 +38,7 @@ module.exports.renderNew = (req, res, next) => {
 }
 
 module.exports.createNewIssue = async (req, res, next) => {
-    const { name, details, time_start, time_end, priority } = req.validatedIssue; // to  be validated
+    const { name, details, time_start, time_end, priority } = req.validatedIssue; 
     const issue = new Issue({
         "name": name, 
         "completed": false, 
@@ -46,6 +46,8 @@ module.exports.createNewIssue = async (req, res, next) => {
         "priority": priority,
         "time_start":time_start, 
         "time_end": time_end })
+    
+    //TODO issue add author 
 
     await issue.save()
     res.redirect("/issues")                        

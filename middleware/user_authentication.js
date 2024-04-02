@@ -13,3 +13,19 @@ module.exports.userValidToLogin = async (req, res, next) =>{
     req.user = user;
     next()
 } 
+
+module.exports.isAuthorized = async (req, res, next) =>{
+    next()
+} 
+
+module.exports.isLoggedIn = async (req, res, next) =>{
+    if (!req.session.userId) {
+        return next(new ExpressError(401, "User is not logged in. Login is needed for this functionality"));
+    } 
+    console.log("user is logged in");
+    next();
+}  
+
+module.exports.isAuthor = async (req, res, next) =>{
+    next()
+}  

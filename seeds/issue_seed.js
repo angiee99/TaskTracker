@@ -47,9 +47,8 @@ const seedDB = async () => {
   await user.save(); 
   issues.forEach( issue => {
     issue.author = user;
-
   })
-  
+
   await Issue.insertMany(issues);
 };
 
