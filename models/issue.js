@@ -26,7 +26,11 @@ const IssueSchema = new Schema({
   time_end: {
     type: String, 
     required: false,
-  }
+  }, 
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  },
 });
 
 
