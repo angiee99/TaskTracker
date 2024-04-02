@@ -3,6 +3,8 @@ const router = express.Router();
 const userController = require('../controllers/users_controller');
 const catchAsync = require('../utils/catchAsynch');
 const { validateUser } = require('../middleware/user_validation');
+const { userValidToLogin } = require('../middleware/user_authentication');
+
 
 router
     .route("/register")
@@ -11,7 +13,7 @@ router
 
 router
     .route("/login")
-    .get(userController.renderLogin);
-    // .post(userController.loginUser);
+    .get(userController.renderLogin)
+    .post(catchAsync(userValidToLogin), catchAsync(userController.loginUser));
 
 module.exports = router;
