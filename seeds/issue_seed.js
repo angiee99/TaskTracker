@@ -29,6 +29,18 @@ let issues = [
   }, 
 ]
 
+let issues2 = [
+  {   
+    "name": "Go for a walk", 
+    "completed": false, 
+    "details": "see the flowers blooming", 
+    "priority": 1, 
+    "time_start": "9:00", 
+    "time_end": "11:00"
+  }
+  
+]
+
 mongoose
   .connect('mongodb://127.0.0.1:27017/issues')
   .catch((error) => console.log(error));
@@ -43,13 +55,26 @@ const seedDB = async () => {
     loginName: "lama", 
     email: "llama@gmail.com", 
     password: "password123"})
+
+  const user2 = new User({
+    loginName: "deer", 
+    email: "deeer@gmail.com", 
+    password: "password1234"})
   
   await user.save(); 
+  await user2.save(); 
+
   issues.forEach( issue => {
     issue.author = user;
   })
 
+  issues2.forEach( issue => {
+    issue.author = user2;
+  })
+
+
   await Issue.insertMany(issues);
+  await Issue.insertMany(issues2);
 };
 
 seedDB()
