@@ -2,6 +2,7 @@ const User = require("../models/user");
 const Issue = require("../models/issue");
 const ExpressError = require("../utils/ExpressError");
 const session = require("express-session");
+const bcrypt = require("bcrypt")
 
 module.exports.renderRegister = (req, res, next) => {
     res.render("register");
@@ -9,8 +10,8 @@ module.exports.renderRegister = (req, res, next) => {
 
 module.exports.createUser = async (req, res, next) => {
     const { loginName, email, password } = req.validatedUser;
-    // hashing the password 
-    const newUser = new User({ loginName, email, password }); 
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = new User({ loginName, email, password: hashedPassword}); 
     await newUser.save();
 
     res.redirect("/users/login"); 

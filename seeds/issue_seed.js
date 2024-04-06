@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Issue = require('../models/issue');
 const User = require('../models/user');
+const bcrypt = require("bcrypt");
 
 let issues = [
   {   
@@ -54,12 +55,12 @@ const seedDB = async () => {
   const user = new User({
     loginName: "lama", 
     email: "llama@gmail.com", 
-    password: "password123"})
+    password: await bcrypt.hash("password123", 10)})
 
   const user2 = new User({
     loginName: "deer", 
     email: "deeer@gmail.com", 
-    password: "password1234"})
+    password: await bcrypt.hash("password1234", 10)})
   
   await user.save(); 
   await user2.save(); 

@@ -2,6 +2,7 @@ const ExpressError = require("../utils/ExpressError");
 const User = require("../models/user");
 const Issue = require("../models/issue");
 const session = require("express-session");
+const bcrypt = require("bcrypt");
 
 module.exports.userValidToLogin = async (req, res, next) =>{
     const {loginName, password} = req.body;
@@ -9,7 +10,8 @@ module.exports.userValidToLogin = async (req, res, next) =>{
     if(!user){
         throw new ExpressError(401, "The login name is incorrect")
     }
-    if(!(user.password === password)){ // compare hashes later
+    const isMatch = await bcrypt.compare(password, user.password);
+    if(!isMatch){ // compares hashes
         throw new ExpressError(401, "The password is incorrect")
     }
     req.user = user;
