@@ -1,4 +1,5 @@
-const User = require("../models/user")
+const User = require("../models/user");
+const Issue = require("../models/issue");
 const ExpressError = require("../utils/ExpressError");
 const session = require("express-session");
 
@@ -45,6 +46,8 @@ module.exports.delete = async (req, res, next) => {
     if(!user){
         throw new ExpressError(404, `Not known user with id ${req.session.userId}`)
     }
+    await Issue.deleteMany({author: req.session.userId}) 
     await user.deleteOne()
+
     res.render("deleted");
 };
