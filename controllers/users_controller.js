@@ -23,7 +23,6 @@ module.exports.renderLogin  = (req, res, next) => {
 module.exports.loginUser = async (req, res, next) => {
     const { username, _id } = req.user;
     req.session.userId = _id;
-    console.log("Login successful");
     res.redirect("/issues");
 };
 

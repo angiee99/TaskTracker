@@ -1,9 +1,9 @@
 const Issue = require("../models/issue")
 const ExpressError = require("../utils/ExpressError");
-
+const session = require("express-session");
 
 module.exports.showIssues = async (req, res, next) => {
-  const issues = await Issue.find({}); // TODO get only those by logined user
+  const issues = await Issue.find({author: req.session.userId}); 
   res.render("home", { issues});
 };
 

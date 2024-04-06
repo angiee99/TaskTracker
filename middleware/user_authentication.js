@@ -36,6 +36,5 @@ module.exports.isAuthor = async (req, res, next) =>{
     if (req.session.userId != issue.author) {
         return next(new ExpressError(401, "User is not authorized"));
     } 
-    console.log("user is authorized for this action")
     next()
 }  
