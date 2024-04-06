@@ -6,6 +6,7 @@
     <title>Error page</title>
 </head>
 <body>
+    <%- include("./partials/navbar") %>
     <h2>Error code: <%=error.statusCode%></h2>
     <p><%=error.message%></h2>
 </body>

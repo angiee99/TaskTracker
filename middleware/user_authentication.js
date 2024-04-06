@@ -1,6 +1,6 @@
 const ExpressError = require("../utils/ExpressError");
 const User = require("../models/user");
-const Issue = require("../models/issue")
+const Issue = require("../models/issue");
 const session = require("express-session");
 
 module.exports.userValidToLogin = async (req, res, next) =>{

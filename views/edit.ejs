@@ -6,6 +6,7 @@
     <title>Edit issue</title>
 </head>
 <body>
+    <%- include("./partials/navbar") %>
     <h1>Issue to crack</h1>
 
     <form action="/issues/<%=issue.id%>/edit" method="post">
