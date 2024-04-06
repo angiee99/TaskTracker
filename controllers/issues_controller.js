@@ -39,15 +39,10 @@ module.exports.renderNew = (req, res, next) => {
 
 module.exports.createNewIssue = async (req, res, next) => {
     const { name, details, time_start, time_end, priority } = req.validatedIssue; 
-    const issue = new Issue({
-        "name": name, 
-        "completed": false, 
-        "details" : details, 
-        "priority": priority,
-        "time_start":time_start, 
-        "time_end": time_end })
-    
-    //TODO issue add author 
+
+    const issue = new Issue({ name, details, priority, time_start, time_end })
+
+    issue.author = req.session.userId;
 
     await issue.save()
     res.redirect("/issues")                        
