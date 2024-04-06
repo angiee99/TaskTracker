@@ -1,5 +1,7 @@
 const ExpressError = require("../utils/ExpressError");
-const User = require("../models/user")
+const User = require("../models/user");
+const Issue = require("../models/issue")
+const session = require("express-session");
 
 module.exports.userValidToLogin = async (req, res, next) =>{
     const {loginName, password} = req.body;
@@ -20,12 +22,20 @@ module.exports.isAuthorized = async (req, res, next) =>{
 
 module.exports.isLoggedIn = async (req, res, next) =>{
     if (!req.session.userId) {
-        return next(new ExpressError(401, "User is not logged in. Login is needed for this functionality"));
+        return res.redirect("users/login");
     } 
-    console.log("user is logged in");
     next();
 }  
 
 module.exports.isAuthor = async (req, res, next) =>{
+    const { id } = req.params;
+    const issue = await Issue.findById(id);
+    if(!issue){
+        return next(new ExpressError(404, `Not known issue with id ${id}`));
+    }
+    if (req.session.userId != issue.author) {
+        return next(new ExpressError(401, "User is not authorized"));
+    } 
+    console.log("user is authorized for this action")
     next()
 }  
