@@ -39,4 +39,12 @@ module.exports.logout = async (req, res, next) => {
       });
     });
 };
-  
+
+module.exports.delete = async (req, res, next) => {
+    const user = await User.findById(req.session.userId)
+    if(!user){
+        throw new ExpressError(404, `Not known user with id ${req.session.userId}`)
+    }
+    await user.deleteOne()
+    res.render("deleted");
+};
