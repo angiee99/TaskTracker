@@ -1,6 +1,28 @@
+:root {
+  --color1: #F4E285;
+  --color2: #F4A259;
+  --color3: #8CB369;
+}
+nav .navbar{
+  background-color: var(--color1);
+  color: whitesmoke;
+}
+
+.btn{
+  background-color: var(--color3);
+  border: 0cm;
+}
 .issue .issue-form{
   display: flex;
   justify-content: space-between;
-  padding: 1% 0;
+  padding: 1% 0%;
+}
+
+a{
+  color: var(--color3);
+}
+input[type='checkbox'] {
+  accent-color: var(--color3);
+  color:white
 }
 

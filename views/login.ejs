@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -8,13 +9,14 @@
     rel="stylesheet" 
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
     crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">    
 
-    <!-- <link rel="stylesheet" href="css/style.css" type="text/css">     -->
     <title>Login</title>
 </head>
 <body>
     <%- include("./partials/navbar") %>
-    <form action="/users/login" method="post">
+    <div class="container">
+        <form action="/users/login" method="post">
         <section>
             <label for="name">Name:</label>
             <input type="text" id="name" name="loginName">
@@ -26,7 +28,9 @@
         </section>
 
         <button class="btn btn-secondary">Login</button>
-    </form>
-    <a href="/users/register">Register</a>
+        </form>
+        <a href="/users/register">Register</a>
+    </div>
+    
 </body>
 </html>

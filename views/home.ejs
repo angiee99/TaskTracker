@@ -21,19 +21,23 @@
       <div class="container issue">
         <% for (let issue of issues) { %>
           <form class="issue-form" action="/issues/<%=issue.id%>" method="post">
-            <div class="issue-form-part">
-              <input onChange="this.form.submit()" type="checkbox" id="<%=issue.id%>" 
-              name="issue" <%=issue.completed ? "checked" : ''%> >
-              <label for="<%=issue.id%>"><%=issue.name %></label>
+            <div class="issue-form-part left-part">
+              <section>
+                <input onChange="this.form.submit()" type="checkbox" id="<%=issue.id%>" 
+                name="issue" <%=issue.completed ? "checked" : ''%> >
+                <label for="<%=issue.id%>"><%=issue.name %></label>
+              </section>
+
               <a href="/issues/<%=issue.id%>">details</a>
+
             </div>
             <div class="issue-form-part">
               <span><%= issue.priority%></span>
 
-              <a href="/issues/<%=issue.id%>/edit">Edit comment</a>
+              <a href="/issues/<%=issue.id%>/edit">Edit</a>
 
               <form action="/issues/<%=issue.id%>?_method=DELETE" method="post">
-                <button class="btn btn-secondary">Delete this task</button>
+                <button class="btn btn-secondary">Delete</button>
               </form>
             </div>
 
