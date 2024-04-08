@@ -45,7 +45,7 @@ app.set("views", path.join(__dirname, "/views"));
 
 app.use("/issues", issueRoutes);
 app.use("/users", userRoutes);
-
+app.use(express.static("public"));
 app.all("*", (req, res, next) => {
   const error = new ExpressError(404, "Not known path")
   next(error);
