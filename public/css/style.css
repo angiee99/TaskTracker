@@ -17,6 +17,21 @@ nav .navbar{
 .container-main{
   margin: 0 12%;
 }
+.container-centered{
+  padding: 0 24%;
+
+}
+.container-startpage{
+  margin-top: 6%;
+}
+.container-startpage form{
+    background-color: #fcf9e8;
+    border-radius: 6%;
+    padding: 4%
+}
+.container-startpage h1{
+  padding: 4%
+}
 .new-task-link{
   margin: 1%;
 }
@@ -33,6 +48,8 @@ nav .navbar{
   justify-content: space-between;
   padding: 1% 0%;
 }
+
+
 
 .container-form-part-with-button span, 
 .container-form-part-with-button a{
@@ -61,6 +78,15 @@ nav .navbar{
 .details-group-name{
   font-size: 120%;
   margin-bottom: 2% ;
+}
+
+.el-centered{
+  display: flex;
+  flex-direction: column;
+  margin-top: 8%;
+}
+.el-centered .btn{
+  margin-left: 32%;
 }
 
 a{
