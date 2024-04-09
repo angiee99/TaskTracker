@@ -13,33 +13,36 @@
 </head>
 <body>
     <%- include("./partials/navbar") %>
-    <h1>Issue to crack</h1>
+    <h1 class="text-center">Edit issue to crack</h1>
 
-    <form action="/issues/<%=issue.id%>/edit" method="post">
+    <form class="issue-form-edit" action="/issues/<%=issue.id%>/edit" method="post">
         <div class="container">
-            <section>
-                <label for="name">Name:</label>
-                <input  class="form-control" type="text" id="name" name="issue[name]" value="<%=issue.name%>">
-            </section>
-            <section>
-                <label for="details">Details:</label>
-                <textarea class="form-control" rows="3" type="textarea" id="details" name="issue[details]" rows="4" cols="50"><%=issue.details%></textarea>
-            </section>
-            <section>
-                <label for="time_start">time_start:</label>
-                <input class="form-control" type="text" id="time_start" name="issue[time_start]"  value="<%=issue.time_start%>">
-            </section>
-            <section>
-                <label for="time_end">time_end:</label>
-                <input class="form-control" type="text" id="time_end" name="issue[time_end]"  value="<%=issue.time_end%>">
-            </section>
-            <section>
-                <label for="priority">priority:</label>
-                <input class="form-control" type="text" id="priority" name="issue[priority]" value="<%=issue.priority%>">
-            </section>
-
-            <button class="btn btn-secondary">Save</button>
-            <a href="/issues">back and forget about this edit</a>
+            <div class="container-form-part">
+                <section>
+                    <label for="name">Name:</label>
+                    <input  class="form-control" type="text" id="name" name="issue[name]" value="<%=issue.name%>">
+                </section>
+                <section>
+                    <label for="details">Details:</label>
+                    <textarea class="form-control" rows="3" type="textarea" id="details" name="issue[details]" rows="4" cols="50"><%=issue.details%></textarea>
+                </section>
+                <section>
+                    <label for="time_start">time_start:</label>
+                    <input class="form-control" type="text" id="time_start" name="issue[time_start]"  value="<%=issue.time_start%>">
+                </section>
+                <section>
+                    <label for="time_end">time_end:</label>
+                    <input class="form-control" type="text" id="time_end" name="issue[time_end]"  value="<%=issue.time_end%>">
+                </section>
+                <section>
+                    <label for="priority">priority:</label>
+                    <input class="form-control" type="text" id="priority" name="issue[priority]" value="<%=issue.priority%>">
+                </section>
+            </div>
+            <div class="container-form-part container-form-part-with-button">
+                <a href="/issues">back and forget about this edit</a>
+                <button class="btn btn-secondary">Save</button>
+            </div>
         </div>
     </form>
 </body>

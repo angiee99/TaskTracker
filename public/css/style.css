@@ -2,6 +2,7 @@
   --color1: #F4E285;
   --color2: #F4A259;
   --color3: #8CB369;
+  --color4:#4F6F52;
 }
 nav .navbar{
   background-color: var(--color1);
@@ -19,8 +20,29 @@ nav .navbar{
   padding: 1% 0%;
 }
 
+.issue-form-edit{
+  margin: 1% 16%;
+}
+
+.container-form-part{
+  margin-bottom: 2%;
+}
+
+.container-form-part-with-button{
+  display: flex;
+  justify-content: space-between;
+}
+
 a{
   color: var(--color3);
+}
+
+a:hover{
+  color: var(--color4);
+}
+
+.btn:hover{
+  background-color: var(--color4);
 }
 
 input[type='checkbox'] {

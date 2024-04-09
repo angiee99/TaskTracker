@@ -13,34 +13,37 @@
 </head>
 <body>
     <%- include("./partials/navbar") %>
-    <h1>New issue to crack</h1>
+    <h1 class="text-center">New issue to crack</h1>
 
-    <form action="/issues" method="post">
+    <form class="issue-form-edit" action="/issues" method="post">
         <div class="container">
-       
-            <div class ="form-group">
-                <label for="name">Name:</label>
-                <input class="form-control" type="text" id="name" name="issue[name]">
+            <div class="container-form-part">
+                <div class ="form-group">
+                    <label for="name">Name:</label>
+                    <input class="form-control" type="text" id="name" name="issue[name]">
+                </div>
+                <div class ="form-group">
+                    <label for="details">Details:</label>
+                    <textarea class="form-control" rows="3"type="textarea" id="details" name="issue[details]" rows="4" cols="50"></textarea>
+                </div>
+                <div class ="form-group">
+                    <label for="time_start">time_start:</label>
+                    <input class="form-control" type="text" id="time_start" name="issue[time_start]">
+                </div>
+                <div class ="form-group">
+                    <label for="time_end">time_end:</label>
+                    <input class="form-control" type="text" id="time_end" name="issue[time_end]">
+                </div>
+                <div class ="form-group">
+                    <label for="priority">priority:</label>
+                    <input class="form-control" type="text" id="priority" name="issue[priority]">
+                </div>
             </div>
-            <div class ="form-group">
-                <label for="details">Details:</label>
-                <textarea class="form-control" rows="3"type="textarea" id="details" name="issue[details]" rows="4" cols="50"></textarea>
+            
+            <div class="container-form-part container-form-part-with-button">
+                <a href="/issues">back and forget about this task</a>
+                <button class="btn btn-secondary">Save new task</button>
             </div>
-            <div class ="form-group">
-                <label for="time_start">time_start:</label>
-                <input class="form-control" type="text" id="time_start" name="issue[time_start]">
-            </div>
-            <div class ="form-group">
-                <label for="time_end">time_end:</label>
-                <input class="form-control" type="text" id="time_end" name="issue[time_end]">
-            </div>
-            <div class ="form-group">
-                <label for="priority">priority:</label>
-                <input class="form-control" type="text" id="priority" name="issue[priority]">
-            </div>
-
-            <button class="btn btn-secondary">Save new task</button>
-            <a href="/issues">back and forget about this task</a>
         </div>
     </form>
 

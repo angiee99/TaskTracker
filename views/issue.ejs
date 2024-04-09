@@ -13,7 +13,7 @@
 </head>
 <body>
   <%- include("./partials/navbar") %>
-    <h1>Issue to crack</h1>
+    <h1 class="text-center">Issue to crack</h1>
 
     <form action="/issues/<%=issue.id%>" method="post">
       <input  class="form-check-input" onChange="this.form.submit()" type="checkbox" id="<%=issue.id%>" 
