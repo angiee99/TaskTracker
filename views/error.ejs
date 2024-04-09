@@ -13,8 +13,11 @@
 </head>
 <body>
     <%- include("./partials/navbar") %>
-    <h2>Error code: <%=error.statusCode%></h2>
-    <p><%=error.message%></h2>
+    <div class="container container-main">
+        <h2>Error code: <%=error.statusCode%></h2>
+        <p><%=error.message%></h2>
+    </div>
+    
     <%- include("./partials/footer") %>
 </body>
 </html>
