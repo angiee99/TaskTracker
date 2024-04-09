@@ -11,15 +11,24 @@
                 </li>
             
             <% } else { %>
-                <li  class="nav-item">
-                    <a class="nav-link" href="/issues">Home</a>
-                </li>
-                <li  class="nav-item"> 
-                    <a class="nav-link" href="/issues/new">New issue</a>
-                </li>
-                <li  class="nav-item">
-                    <a class="nav-link" href="/users/logout">Logout</a>
-                </li>
+                <div class="navbar-flex">
+                    <div class="navbar-flex-part">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/issues">Home</a>
+                        </li>
+                      
+                        <li  class="nav-item"> 
+                            <a class="nav-link" href="/issues/new">New issue</a>
+                        </li>
+                    </div>
+                    <div class="navbar-flex-part right">
+                        <li  class=" nav-item">
+                            <a class="nav-link" href="/users/logout">Logout</a>
+                        </li>
+                    </div>
+                </div>
+             
+               
             <% } %>
             </ul>
         </div>
