@@ -16,14 +16,14 @@ router
 
 router
   .route('/:id/edit')
-  .get(isLoggedIn, isAuthor, catchAsync(issueController.showEditForm))
-  .post(isLoggedIn, isAuthor, validateIssue, catchAsync(issueController.saveEditedIssue));
+  .get(isLoggedIn, catchAsync(isAuthor), catchAsync(issueController.showEditForm))
+  .post(isLoggedIn, catchAsync(isAuthor), validateIssue, catchAsync(issueController.saveEditedIssue));
 
 router
   .route('/:id')
-  .get(isLoggedIn, isAuthor, catchAsync(issueController.showIssueDetails))
-  .post(isLoggedIn, isAuthor, catchAsync(issueController.updateIssue))
-  .delete(isLoggedIn, isAuthor, catchAsync(issueController.deleteIssue));
+  .get(isLoggedIn, catchAsync(isAuthor), catchAsync(issueController.showIssueDetails))
+  .post(isLoggedIn, catchAsync(isAuthor), catchAsync(issueController.updateIssue))
+  .delete(isLoggedIn, catchAsync(isAuthor), catchAsync(issueController.deleteIssue));
 
 
 module.exports = router;
