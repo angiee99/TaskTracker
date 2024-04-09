@@ -13,19 +13,39 @@
 </head>
 <body>
   <%- include("./partials/navbar") %>
+  <div class="container">
+
     <h1 class="text-center">Issue to crack</h1>
 
-    <form action="/issues/<%=issue.id%>" method="post">
-      <input  class="form-check-input" onChange="this.form.submit()" type="checkbox" id="<%=issue.id%>" 
-        name="issue" <%=issue.completed ? "checked" : ''%> >
-      <label  class="form-check-label" for="<%=issue.id%>"><%=issue.name %></label>
-      <p><%= issue.priority%></p>
-      <p><%= issue.details%></p>
-      <p><%= issue.time_start%></p>
-      <p><%= issue.time_end%></p>
-      <a href="/issues/">back</a>
-    </form>
+    <div class="container-main">
+      <form action="/issues/<%=issue.id%>" method="post">
+        <div class="details-group-name">
+          <input  class="form-check-input" onChange="this.form.submit()" type="checkbox" id="<%=issue.id%>" 
+            name="issue" <%=issue.completed ? "checked" : ''%> >
+          <label  class="form-check-label" for="<%=issue.id%>"><%=issue.name %></label>
+        </div>
+        <div class="details-group">
+          <p>Priority: </p>
+          <p><%= issue.priority%></p>
+        </div>
+        <div class="details-group">
+          <p>Details: </p>
+          <p><%= issue.details%></p>
+        </div>
+        <div class="details-group">
+          <p>Time to start: </p>
+          <p><%= issue.time_start%></p>
+        </div>
+        <div class="details-group">
+          <p>Time to end: </p>
+          <p><%= issue.time_end%></p>
+        </div>
+        
+        <a href="/issues/">back</a>
+      </form>
+    </div>
 
-    <%- include("./partials/footer") %>
+  </div>
+  <%- include("./partials/footer") %>
 </body>
 </html>

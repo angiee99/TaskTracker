@@ -14,7 +14,7 @@ nav .navbar{
   margin: 0 12%;
 }
 
-.container-home{
+.container-main{
   margin: 0 12%;
 }
 .new-task-link{
@@ -52,11 +52,17 @@ nav .navbar{
   justify-content: space-between;
 }
 
-/* .issue-form-part .container-form-part-with-button span, 
-.issue-form-part .container-form-part-with-button a, 
-.issue-form-part .container-form-part-with-button form{
-  margin-right: 1%;
-} */
+.details-group{
+  display: flex;
+}
+.details-group p {
+  padding-right: 1%;
+}
+.details-group-name{
+  font-size: 120%;
+  margin-bottom: 2% ;
+}
+
 a{
   color: var(--color3);
 }
