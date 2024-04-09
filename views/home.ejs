@@ -17,38 +17,42 @@
     <%- include("./partials/navbar") %>
     <div class="container">
       <h1 class="text-center">Issues to crack</h1>
-      <a href="/issues/new">New task</a>
-      <div class="container issue">
-        <% for (let issue of issues) { %>
-          <form class="issue-form" action="/issues/<%=issue.id%>" method="post">
-            <div class="issue-form-part left-part">
-              <section>
-                <input class="form-check-input" onChange="this.form.submit()" type="checkbox" id="<%=issue.id%>" 
-                name="issue" <%=issue.completed ? "checked" : ''%> >
-                <label class="form-check-label"  for="<%=issue.id%>"><%=issue.name %></label>
-              </section>
+      <div class="container-home">
+        <a class="new-task-link" href="/issues/new">New task</a>
 
-              <a href="/issues/<%=issue.id%>">details</a>
+        <div class="container issue">
+          <% for (let issue of issues) { %>
+            <div class="issue-form">
+              <div class="issue-form-part">
+                <form  class="issue-form-part" action="/issues/<%=issue.id%>" method="post">
+                    <section>
+                      <input class="form-check-input" onChange="this.form.submit()" type="checkbox" id="<%=issue.id%>" 
+                      name="issue" <%=issue.completed ? "checked" : ''%> >
+                      <label class="form-check-label"  for="<%=issue.id%>"><%=issue.name %></label>
+                    </section>
+
+                    <a href="/issues/<%=issue.id%>">details</a>
+                </form>
+              </div>
+
+              <div class="issue-form-part container-form-part-with-button">
+                <span><%= issue.priority%></span>
+
+                <a href="/issues/<%=issue.id%>/edit">Edit</a>
+
+                <form action="/issues/<%=issue.id%>?_method=DELETE" method="post">
+                  <button class="btn btn-secondary">Delete</button>
+                </form>
+              </div>
 
             </div>
-            <div class="issue-form-part">
-              <span><%= issue.priority%></span>
-
-              <a href="/issues/<%=issue.id%>/edit">Edit</a>
-
-              <form action="/issues/<%=issue.id%>?_method=DELETE" method="post">
-                <button class="btn btn-secondary">Delete</button>
-              </form>
-            </div>
-
-          </form>
-
-        <%} %>
+            <%} %>
+        </div>
+        
+        <form action="/users/delete?_method=DELETE" method="post">
+          <button class="btn btn-secondary">Delete user</button>
+        </form>
       </div>
-      
-      <form action="/users/delete?_method=DELETE" method="post">
-        <button class="btn btn-secondary">Delete user</button>
-      </form>
     </div>
     
     <%- include("./partials/footer") %>

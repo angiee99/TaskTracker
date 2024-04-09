@@ -18,26 +18,26 @@
     <form class="issue-form-edit" action="/issues/<%=issue.id%>/edit" method="post">
         <div class="container">
             <div class="container-form-part">
-                <section>
+                <div class ="form-group">
                     <label for="name">Name:</label>
                     <input  class="form-control" type="text" id="name" name="issue[name]" value="<%=issue.name%>">
-                </section>
-                <section>
+                </div>
+                <div class ="form-group">
                     <label for="details">Details:</label>
                     <textarea class="form-control" rows="3" type="textarea" id="details" name="issue[details]" rows="4" cols="50"><%=issue.details%></textarea>
-                </section>
-                <section>
+                </div>
+                <div class ="form-group">
                     <label for="time_start">time_start:</label>
                     <input class="form-control" type="text" id="time_start" name="issue[time_start]"  value="<%=issue.time_start%>">
-                </section>
-                <section>
+                </div>
+                <div class ="form-group">
                     <label for="time_end">time_end:</label>
                     <input class="form-control" type="text" id="time_end" name="issue[time_end]"  value="<%=issue.time_end%>">
-                </section>
-                <section>
+                </div>
+                <div class ="form-group">
                     <label for="priority">priority:</label>
                     <input class="form-control" type="text" id="priority" name="issue[priority]" value="<%=issue.priority%>">
-                </section>
+                </div>
             </div>
             <div class="container-form-part container-form-part-with-button">
                 <a href="/issues">back and forget about this edit</a>

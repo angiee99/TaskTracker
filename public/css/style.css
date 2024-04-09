@@ -4,10 +4,24 @@
   --color3: #8CB369;
   --color4:#4F6F52;
 }
+
 nav .navbar{
   background-color: var(--color1);
   color: whitesmoke;
   margin-bottom: 2%;
+}
+.navbar-nav{
+  margin: 0 12%;
+}
+
+.container-home{
+  margin: 0 12%;
+}
+.new-task-link{
+  margin: 1%;
+}
+.form-group{
+  padding: 1% 0;
 }
 
 .btn{
@@ -18,6 +32,11 @@ nav .navbar{
   display: flex;
   justify-content: space-between;
   padding: 1% 0%;
+}
+
+.container-form-part-with-button span, 
+.container-form-part-with-button a{
+  padding-right: 10%;
 }
 
 .issue-form-edit{
@@ -33,6 +52,11 @@ nav .navbar{
   justify-content: space-between;
 }
 
+/* .issue-form-part .container-form-part-with-button span, 
+.issue-form-part .container-form-part-with-button a, 
+.issue-form-part .container-form-part-with-button form{
+  margin-right: 1%;
+} */
 a{
   color: var(--color3);
 }
@@ -45,7 +69,7 @@ a:hover{
   background-color: var(--color4);
 }
 
-input[type='checkbox'] {
+input[type='checkbox'], .form-check-input {
   accent-color: var(--color3);
   color:white
 }
