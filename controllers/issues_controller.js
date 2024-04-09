@@ -68,7 +68,7 @@ module.exports.showEditForm = async (req, res, next) => {
 
 module.exports.saveEditedIssue = async (req, res, next) => {
     const { id } = req.params;
-    const { name, details, time_start, time_end, priority } = req.validatedIssue; // to  be validated
+    const { name, details, time_start, time_end, priority } = req.validatedIssue; 
     const updatedIssue = await Issue.findByIdAndUpdate(id, 
         { name, details, time_start, time_end, priority });
         

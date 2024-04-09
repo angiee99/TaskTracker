@@ -3,7 +3,7 @@ const router = express.Router();
 const issueController = require('../controllers/issues_controller');
 const catchAsync = require('../utils/catchAsynch');
 const { validateIssue } = require('../middleware/issue_validation')
-const { isAuthorized, isLoggedIn, isAuthor} = require('../middleware/user_authentication')
+const { isLoggedIn, isAuthor} = require('../middleware/user_authentication')
 
 router
   .route('/')
@@ -11,8 +11,8 @@ router
   .post(isLoggedIn, validateIssue, catchAsync(issueController.createNewIssue));
   
 router
-.route('/new')
-.get(isLoggedIn, issueController.renderNew);
+  .route('/new')
+  .get(isLoggedIn, issueController.renderNew);
 
 router
   .route('/:id/edit')
