@@ -16,29 +16,32 @@
     <h1>New issue to crack</h1>
 
     <form action="/issues" method="post">
-        <section>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="issue[name]">
-        </section>
-        <section>
-            <label for="details">Details:</label>
-            <textarea type="textarea" id="details" name="issue[details]" rows="4" cols="50"></textarea>
-        </section>
-        <section>
-            <label for="time_start">time_start:</label>
-            <input type="text" id="time_start" name="issue[time_start]">
-        </section>
-        <section>
-            <label for="time_end">time_end:</label>
-            <input type="text" id="time_end" name="issue[time_end]">
-        </section>
-        <section>
-            <label for="priority">priority:</label>
-            <input type="text" id="priority" name="issue[priority]">
-        </section>
+        <div class="container">
+       
+            <div class ="form-group">
+                <label for="name">Name:</label>
+                <input class="form-control" type="text" id="name" name="issue[name]">
+            </div>
+            <div class ="form-group">
+                <label for="details">Details:</label>
+                <textarea class="form-control" rows="3"type="textarea" id="details" name="issue[details]" rows="4" cols="50"></textarea>
+            </div>
+            <div class ="form-group">
+                <label for="time_start">time_start:</label>
+                <input class="form-control" type="text" id="time_start" name="issue[time_start]">
+            </div>
+            <div class ="form-group">
+                <label for="time_end">time_end:</label>
+                <input class="form-control" type="text" id="time_end" name="issue[time_end]">
+            </div>
+            <div class ="form-group">
+                <label for="priority">priority:</label>
+                <input class="form-control" type="text" id="priority" name="issue[priority]">
+            </div>
 
-        <button>Save new task</button>
-      <a href="/issues">back and forget about this task</a>
+            <button class="btn btn-secondary">Save new task</button>
+            <a href="/issues">back and forget about this task</a>
+        </div>
     </form>
 
 </body>

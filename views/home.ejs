@@ -23,9 +23,9 @@
           <form class="issue-form" action="/issues/<%=issue.id%>" method="post">
             <div class="issue-form-part left-part">
               <section>
-                <input onChange="this.form.submit()" type="checkbox" id="<%=issue.id%>" 
+                <input class="form-check-input" onChange="this.form.submit()" type="checkbox" id="<%=issue.id%>" 
                 name="issue" <%=issue.completed ? "checked" : ''%> >
-                <label for="<%=issue.id%>"><%=issue.name %></label>
+                <label class="form-check-label"  for="<%=issue.id%>"><%=issue.name %></label>
               </section>
 
               <a href="/issues/<%=issue.id%>">details</a>
