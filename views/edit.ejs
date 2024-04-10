@@ -13,6 +13,7 @@
 </head>
 <body>
     <%- include("./partials/navbar") %>
+    <div class="container-main">
     <h1 class="text-center">Edit issue to crack</h1>
 
     <form class="issue-form-edit" action="/issues/<%=issue.id%>/edit" method="post">
@@ -45,5 +46,7 @@
             </div>
         </div>
     </form>
+    </div>
+    <%- include("./partials/footer") %>
 </body>
 </html>

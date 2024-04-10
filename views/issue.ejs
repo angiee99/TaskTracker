@@ -14,10 +14,9 @@
 <body>
   <%- include("./partials/navbar") %>
   <div class="container">
-
+    <div class="container-main">
     <h1 class="text-center">Issue to crack</h1>
 
-    <div class="container-main">
       <form action="/issues/<%=issue.id%>" method="post">
         <div class="details-group-name">
           <input  class="form-check-input" onChange="this.form.submit()" type="checkbox" id="<%=issue.id%>" 

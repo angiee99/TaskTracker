@@ -16,9 +16,10 @@
 <body>
     <%- include("./partials/navbar") %>
     <div class="container">
-      <h1 class="text-center">Issues to crack</h1>
       <div class="container-main">
-        <a class="new-task-link" href="/issues/new">New task</a>
+        <h1 class="text-center">Issues to crack</h1>
+      
+        <a class="new-task-link" href="/issues/new">New issue</a>
 
         <div class="container issue">
           <% for (let issue of issues) { %>
