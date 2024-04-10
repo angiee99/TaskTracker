@@ -52,3 +52,28 @@ module.exports.delete = async (req, res, next) => {
 
     res.render("deleted");
 };
+module.exports.renderEdit  = async(req, res, next) => {
+    const user = await User.findById(req.session.userId);
+    res.render("editUser", { user });
+}
+
+module.exports.saveEditedUser = async (req, res, next) => {
+
+    const { loginName, email, password } = req.validatedUser;
+    let updatedUser = {}
+    if(!password || password==""){
+            updatedUser = await User.findByIdAndUpdate(req.session.userId, 
+            {loginName, email });
+    }
+    else{
+        const hashedPassword = await bcrypt.hash(password, 10);
+        updatedUser = await User.findByIdAndUpdate(req.session.userId, 
+            {loginName, email, password: hashedPassword});
+    }
+
+    if(!updatedUser){
+        throw new ExpressError(404, `Failed to save edited user`)
+    }
+    await updatedUser.save()
+    res.redirect("/issues"); 
+}
