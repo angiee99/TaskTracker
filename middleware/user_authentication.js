@@ -20,7 +20,7 @@ module.exports.userValidToLogin = async (req, res, next) =>{
 
 module.exports.isLoggedIn = async (req, res, next) =>{
     if (!req.session.userId) {
-        return res.redirect("users/login");
+        return res.redirect("/users/login");
     } 
     next();
 }  
